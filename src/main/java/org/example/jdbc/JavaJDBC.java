@@ -10,7 +10,7 @@ public class JavaJDBC {
         // connect to mysql
         try(Connection conn =
                     DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/test?serverTimezone=UTC",
-                            "root", "root")) {
+                            "root", "!Aa123456")) {
             boolean isValid = conn.isValid(0);
             System.out.println("is there connect database valid = " + isValid);
 
@@ -42,7 +42,7 @@ public class JavaJDBC {
             PreparedStatement deleteStatement = conn.prepareStatement("delete from test.customer where id > ?");
             deleteStatement.setInt(1, 3);
             int deletedRows = deleteStatement.executeUpdate();
-            System.out.println("Delete Rows = " + deletedRows);
+            System.out.println("Delete rows = " + deletedRows);
 
         } catch (SQLException e) {
             throw new UnsupportedOperationException(e);
